@@ -1,4 +1,3 @@
-from math import pow
 from datetime import datetime
 from django.utils import timezone
 
@@ -7,7 +6,7 @@ from ninja import NinjaAPI, Router
 from difference.models import OccurenceCount
 from difference.schema import DifferenceOutputSchema, Error
 
-api = NinjaAPI()
+
 router = Router()
 
 
@@ -40,6 +39,3 @@ def difference(request, number: int):
         occ_count.save(update_fields=["number", "value", "occurences"])
 
     return occ_count
-
-
-api.add_router("", router)

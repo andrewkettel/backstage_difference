@@ -1,5 +1,5 @@
 """
-WSGI config for difference project.
+WSGI config for backstage_math project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "difference.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backstage_math.settings")
 
 application = get_wsgi_application()
