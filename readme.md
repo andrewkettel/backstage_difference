@@ -1,0 +1,2 @@
+# Notes from Andrew Kettel
+
