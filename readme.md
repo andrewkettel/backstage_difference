@@ -6,7 +6,7 @@ Clone repo from git:<br/>
 Inside `backstage_difference` folder: <br/>
 `python3 -m venv .venv`<br/>
 `source .venv/bin/activate`<br/>
-`pip install -r requirement.txt`<br/>
+`pip install -r requirements.txt`<br/>
 
 ## To run the test server
 `python manage.py runserver`
