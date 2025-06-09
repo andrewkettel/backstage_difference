@@ -4,7 +4,7 @@ from freezegun import freeze_time
 from ninja.testing import TestClient
 import datetime
 
-from .api import router
+from difference.api import router
 
 
 class TestDifference(TestCase):
