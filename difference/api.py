@@ -15,7 +15,9 @@ router = Router()
 def difference(request, number: int):
     # validate that number is less than 100
     if number > 100:
-        return 422, {"message": "Value for 'number' too large, must be <=100"}
+        return 422, {"message": "Value for 'number' too large, must be <= 100"}
+    if number <= 0:
+        return 422, {"message": "Value for 'number' too small, must be > 0"}
 
     # Get, update, store occurance count
     occ_count, created = OccurenceCount.objects.get_or_create(number=number)
