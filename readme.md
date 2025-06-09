@@ -7,7 +7,8 @@ Inside `backstage_difference` folder: <br/>
 `python3 -m venv .venv`<br/>
 `source .venv/bin/activate`<br/>
 `pip install -r requirements.txt`<br/>
-
+## Initial DB setup
+`python manage.py migrate`
 ## To run the test server
 `python manage.py runserver`
 
