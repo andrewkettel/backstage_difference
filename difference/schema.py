@@ -1,9 +1,12 @@
-from ninja import Schema
+from ninja import ModelSchema, Schema
+
+from .models import OccurenceCount
 
 
-class DifferenceOutputSchema(Schema):
-    number: int
-    value: int
+class DifferenceOutputSchema(ModelSchema):
+    class Meta:
+        model = OccurenceCount
+        fields = "datetime", "value", "number", "occurences", "last_datetime"
 
 
 class Error(Schema):

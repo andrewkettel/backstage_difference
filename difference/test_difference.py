@@ -1,7 +1,5 @@
 from django.test import TestCase
 from ninja.testing import TestClient
-from pydantic import ValidationError
-import pytest
 
 from .api import router
 
