@@ -17,17 +17,18 @@ def difference(request, number: int):
         return 422, {"message": "Value for 'number' too small, must be > 0"}
 
     # Get, update, store occurance count
-    occ_count, created = OccurenceCount.objects.get_or_create(number=number)
+    occ_count, created = OccurenceCount.objects.get_or_create(
+        number=number,
+        defaults={"occurences": 1},
+    )
     if not created:
         occ_count.last_datetime = occ_count.datetime
         occ_count.occurences += 1
         occ_count.save(update_fields=["occurences", "last_datetime", "datetime"])
     else:
         # First time seeing this number, calculate the difference
-        # Set stored values for quicker lookup
-        occ_count.number = number
+        # Set stored solution for quicker lookup
         occ_count.value = calculate_difference(number)
-        occ_count.occurences += 1
-        occ_count.save(update_fields=["number", "value", "occurences"])
+        occ_count.save(update_fields=["value"])
 
     return occ_count
