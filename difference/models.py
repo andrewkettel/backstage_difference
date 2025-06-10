@@ -7,3 +7,6 @@ class OccurenceCount(models.Model):
     value = models.IntegerField(default=0)
     occurences = models.IntegerField(default=0)
     last_datetime = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"num:{self.number} - value:{self.value} - occ:{self.occurences}"

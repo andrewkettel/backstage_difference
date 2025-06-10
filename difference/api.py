@@ -1,10 +1,8 @@
-from datetime import datetime
-from django.utils import timezone
-
-from ninja import NinjaAPI, Router
+from ninja import Router
 
 from difference.models import OccurenceCount
 from difference.schema import DifferenceOutputSchema, Error
+from difference.utils import calculate_difference
 
 
 router = Router()
@@ -23,18 +21,12 @@ def difference(request, number: int):
     if not created:
         occ_count.last_datetime = occ_count.datetime
         occ_count.occurences += 1
-        occ_count.save()
+        occ_count.save(update_fields=["occurences", "last_datetime", "datetime"])
     else:
         # First time seeing this number, calculate the difference
-        sum_of_squares: int = 0
-        sum_of_number: int = 0
-        for i in range(1, number + 1):
-            sum_of_squares += i * i
-            sum_of_number += i
-        square_of_sum = sum_of_number * sum_of_number
-
+        # Set stored values for quicker lookup
         occ_count.number = number
-        occ_count.value = abs(sum_of_squares - square_of_sum)
+        occ_count.value = calculate_difference(number)
         occ_count.occurences += 1
         occ_count.save(update_fields=["number", "value", "occurences"])
 
