@@ -1,14 +1,14 @@
 def sum_of_squares(n: int) -> int:
-    sum_of_squares: int = 0
-    for i in range(1, n + 1):
-        sum_of_squares += i * i
-
-    return sum_of_squares
+    # efficient O(1) instead of O(n) loop
+    # https://www.cuemath.com/algebra/sum-of-squares/
+    return (n * (n + 1) * (2 * n + 1)) // 6
 
 
 def square_of_sums(n: int) -> int:
-    sum_of_number = sum(range(1, n + 1))
-    return sum_of_number * sum_of_number
+    # efficient O(1) instead of O(n) loop
+    # https://www.cuemath.com/sum-of-natural-numbers-formula/
+    sum_of_numbers = n * (n + 1) // 2
+    return sum_of_numbers * sum_of_numbers
 
 
 def calculate_difference(n: int) -> int:
