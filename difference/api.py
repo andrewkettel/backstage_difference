@@ -1,3 +1,4 @@
+from django.db.models import F
 from ninja import Router
 
 from difference.models import OccurenceCount
@@ -23,8 +24,9 @@ def difference(request, number: int):
     )
     if not created:
         occ_count.last_datetime = occ_count.datetime
-        occ_count.occurences += 1
+        occ_count.occurences = F("occurences") + 1
         occ_count.save(update_fields=["occurences", "last_datetime", "datetime"])
+        occ_count.refresh_from_db()
     else:
         # First time seeing this number, calculate the difference
         # Set stored solution for quicker lookup
