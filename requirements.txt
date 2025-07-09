@@ -5,7 +5,10 @@ Django==5.2.2
 django-ninja==1.4.3
 freezegun==1.5.2
 iniconfig==2.1.0
+mypy==1.16.1
+mypy_extensions==1.1.0
 packaging==25.0
+pathspec==0.12.1
 pluggy==1.6.0
 pydantic==2.11.5
 pydantic_core==2.33.2
@@ -13,5 +16,6 @@ Pygments==2.19.1
 python-dateutil==2.9.0.post0
 six==1.17.0
 sqlparse==0.5.3
+types-python-dateutil==2.9.0.20250708
 typing-inspection==0.4.1
 typing_extensions==4.14.0
